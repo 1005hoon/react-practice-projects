@@ -1,7 +1,13 @@
+import "./styles/App.scss";
+
+import MusicPlayer from "./components/MusicPlayer";
+import Song from "./components/Song";
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <Song></Song>
+      <MusicPlayer></MusicPlayer>
     </div>
   );
 }
