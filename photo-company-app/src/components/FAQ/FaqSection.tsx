@@ -1,5 +1,5 @@
 import React from "react";
-
+import {} from "./styles";
 const FaqSection = (): JSX.Element => {
   return (
     <div className="faq">

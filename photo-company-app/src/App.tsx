@@ -1,6 +1,6 @@
 import React from "react";
 
-import GlobalStyle from "./components/GlobalStyle";
+import GlobalStyle from "./GlobalStyle";
 import AboutUs from "./pages/AboutUs";
 
 function App(): JSX.Element {

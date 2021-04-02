@@ -1,7 +1,7 @@
 import React from "react";
-import AboutSection from "../components/AboutSection";
-import ServicesSection from "../components/ServicesSection";
-import FaqSection from "../components/FaqSection";
+import AboutSection from "../components/About/AboutSection";
+import ServicesSection from "../components/Service/ServicesSection";
+import FaqSection from "../components/FAQ/FaqSection";
 
 const AboutUs = (): JSX.Element => {
   return (
