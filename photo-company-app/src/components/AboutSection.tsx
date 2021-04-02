@@ -3,7 +3,7 @@ import home1 from "../img/home1.png";
 
 const AboutSection = (): JSX.Element => {
   return (
-    <div>
+    <>
       <div className="description">
         <div className="title">
           <div className="hide">
@@ -27,7 +27,7 @@ const AboutSection = (): JSX.Element => {
       <div className="image">
         <img src={home1} alt="guy with a camera" />
       </div>
-    </div>
+    </>
   );
 };
 
