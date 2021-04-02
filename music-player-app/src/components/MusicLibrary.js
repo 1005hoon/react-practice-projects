@@ -7,6 +7,7 @@ const MusicLibrary = ({
   audioRef,
   setCurrentSong,
   isPlaying,
+  isLibraryOpen,
 }) => {
   const renderSongs = songs.map((song) => (
     <LibrarySong
@@ -19,9 +20,8 @@ const MusicLibrary = ({
       key={song.id}
     />
   ));
-
   return (
-    <div className="library">
+    <div className={`library ${isLibraryOpen ? "library-open" : ""}`}>
       <h2>Music Library</h2>
       <div className="library-songs">{renderSongs}</div>
     </div>

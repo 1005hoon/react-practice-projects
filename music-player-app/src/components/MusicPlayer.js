@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -8,12 +8,42 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const MusicPlayer = ({
+  currentSong,
+  setCurrentSong,
+  songs,
+  setSongs,
   audioRef,
   songInfo,
   setSongInfo,
   isPlaying,
   setIsPlaying,
 }) => {
+  useEffect(() => {
+    const updatedSongList = songs.map((songData) => {
+      if (songData.id === currentSong.id) {
+        return {
+          ...songData,
+          active: true,
+        };
+      } else {
+        return {
+          ...songData,
+          active: false,
+        };
+      }
+    });
+    setSongs(updatedSongList);
+
+    if (isPlaying) {
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.then((audio) => {
+          audioRef.current.play();
+        });
+      }
+    }
+  }, [currentSong]);
+
   const playButtonHandler = () => {
     if (isPlaying) {
       audioRef.current.pause();
@@ -29,6 +59,34 @@ const MusicPlayer = ({
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
 
+  const skipSongHandler = (direction) => {
+    const currentSongIndex = songs.findIndex((song) => {
+      if (song.id === currentSong.id) {
+        return song;
+      }
+    });
+
+    const songToPlay =
+      direction === "previous"
+        ? songs.filter((song, index) => {
+            if (
+              index ===
+              (currentSongIndex + songs.length - 1) % songs.length
+            ) {
+              return song;
+            }
+          })
+        : songs.filter((song, index) => {
+            if (
+              index ===
+              (currentSongIndex + songs.length + 1) % songs.length
+            ) {
+              return song;
+            }
+          });
+
+    setCurrentSong(songToPlay[0]);
+  };
   const getTime = (time) =>
     Math.floor(time / 60) + " : " + ("0" + Math.floor(time % 60)).slice(-2);
 
@@ -46,7 +104,12 @@ const MusicPlayer = ({
         <p>{getTime(songInfo.duration)}</p>
       </div>
       <div className="play-controller">
-        <FontAwesomeIcon className="skip-back" size="2x" icon={faAngleLeft} />
+        <FontAwesomeIcon
+          className="skip-back"
+          onClick={() => skipSongHandler("previous")}
+          size="2x"
+          icon={faAngleLeft}
+        />
         <FontAwesomeIcon
           onClick={playButtonHandler}
           className="play"
@@ -58,6 +121,7 @@ const MusicPlayer = ({
           className="skip-forward"
           size="2x"
           icon={faAngleRight}
+          onClick={() => skipSongHandler("next")}
         />
       </div>
     </div>

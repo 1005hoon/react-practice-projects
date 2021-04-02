@@ -11,9 +11,19 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+
+  transition: all 0.2s ease;
+  opacity: 0;
+  transform: translateX(-100%);
+
   h2 {
     padding: 2rem 0;
   }
+}
+
+.library-open {
+  transform: translateX(0%);
+  opacity: 1;
 }
 
 .library-song {
