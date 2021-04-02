@@ -10,12 +10,12 @@
     width: 50%;
 
     input {
-      width: 100%;
+      width: 50%;
       padding: 1rem 0;
     }
 
     p {
-      width: 20%;
+      width: 25%;
       padding: 1rem;
     }
   }
@@ -24,12 +24,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 20%;
+    width: 30%;
     padding: 1rem;
 
     svg {
+      display: inline-block;
       cursor: pointer;
-      font-size: 1.5rem;
+      width: 30%;
     }
   }
 }
