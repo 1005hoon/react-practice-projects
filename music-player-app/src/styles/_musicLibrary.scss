@@ -64,3 +64,10 @@
 .selected {
   background: rgba(173, 216, 230, 0.411);
 }
+
+@media screen and (max-width: 768px) {
+  .library {
+    width: 100%;
+    background: #fff;
+  }
+}

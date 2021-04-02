@@ -7,11 +7,8 @@ import {
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { playAudio } from "../utils/playAudio";
-
 const MusicPlayer = ({
   currentSong,
-  setCurrentSong,
   songs,
   setSongs,
   audioRef,
@@ -19,6 +16,7 @@ const MusicPlayer = ({
   setSongInfo,
   isPlaying,
   setIsPlaying,
+  skipSongHandler,
 }) => {
   useEffect(() => {
     const updatedSongList = songs.map((songData) => {
@@ -35,8 +33,6 @@ const MusicPlayer = ({
       }
     });
     setSongs(updatedSongList);
-
-    playAudio(isPlaying, audioRef);
   }, [currentSong]);
 
   const playButtonHandler = () => {
@@ -54,34 +50,6 @@ const MusicPlayer = ({
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
 
-  const skipSongHandler = (direction) => {
-    const currentSongIndex = songs.findIndex((song) => {
-      if (song.id === currentSong.id) {
-        return song;
-      }
-    });
-
-    const songToPlay =
-      direction === "previous"
-        ? songs.filter((song, index) => {
-            if (
-              index ===
-              (currentSongIndex + songs.length - 1) % songs.length
-            ) {
-              return song;
-            }
-          })
-        : songs.filter((song, index) => {
-            if (
-              index ===
-              (currentSongIndex + songs.length + 1) % songs.length
-            ) {
-              return song;
-            }
-          });
-
-    setCurrentSong(songToPlay[0]);
-  };
   const getTime = (time) =>
     Math.floor(time / 60) + " : " + ("0" + Math.floor(time % 60)).slice(-2);
 

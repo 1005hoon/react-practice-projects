@@ -8,15 +8,16 @@
   .time-controller {
     display: flex;
     width: 50%;
-
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     input {
-      width: 50%;
-      padding: 1rem 0;
+      width: 60%;
     }
 
     p {
-      width: 25%;
-      padding: 1rem;
+      width: 20%;
     }
   }
 
@@ -31,6 +32,22 @@
       display: inline-block;
       cursor: pointer;
       width: 30%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .music-player {
+    .time-controller {
+      width: 80%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .play-controller {
+      width: 50%;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

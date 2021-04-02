@@ -27,9 +27,39 @@ function App() {
 
     setSongInfo({ ...songInfo, currentTime, duration });
   };
+  const skipSongHandler = async (direction = "next") => {
+    const currentSongIndex = songs.findIndex((song) => {
+      if (song.id === currentSong.id) {
+        return song;
+      }
+    });
+
+    const songToPlay =
+      direction === "previous"
+        ? songs.filter((song, index) => {
+            if (
+              index ===
+              (currentSongIndex + songs.length - 1) % songs.length
+            ) {
+              return song;
+            }
+          })
+        : songs.filter((song, index) => {
+            if (
+              index ===
+              (currentSongIndex + songs.length + 1) % songs.length
+            ) {
+              return song;
+            }
+          });
+
+    await setCurrentSong(songToPlay[0]);
+
+    if (isPlaying) audioRef.current.play();
+  };
 
   return (
-    <div className="App">
+    <div className={`App ${isLibraryOpen ? "library-active" : ""}`}>
       <Nav isLibraryOpen={isLibraryOpen} setIsLibraryOpen={setIsLibraryOpen} />
       <Song currentSong={currentSong} />
       <MusicPlayer
@@ -42,6 +72,7 @@ function App() {
         setSongInfo={setSongInfo}
         songs={songs}
         setSongs={setSongs}
+        skipSongHandler={(direction) => skipSongHandler(direction)}
       />
       <MusicLibrary
         songs={songs}
@@ -56,6 +87,7 @@ function App() {
         onTimeUpdate={timeUpdateHandler}
         onLoadedMetadata={timeUpdateHandler}
         src={currentSong.audio}
+        onEnded={skipSongHandler}
       ></audio>
     </div>
   );
