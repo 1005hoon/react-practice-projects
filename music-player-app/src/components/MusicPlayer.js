@@ -7,6 +7,8 @@ import {
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { playAudio } from "../utils/playAudio";
+
 const MusicPlayer = ({
   currentSong,
   setCurrentSong,
@@ -34,14 +36,7 @@ const MusicPlayer = ({
     });
     setSongs(updatedSongList);
 
-    if (isPlaying) {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.then((audio) => {
-          audioRef.current.play();
-        });
-      }
-    }
+    playAudio(isPlaying, audioRef);
   }, [currentSong]);
 
   const playButtonHandler = () => {
