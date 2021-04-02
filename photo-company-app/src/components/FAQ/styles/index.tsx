@@ -1,35 +1,36 @@
 import styled from "styled-components/macro";
 
 // styled components
-export const About = styled.div`
+export const FAQ = styled.section`
   min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: block;
   padding: 5rem 10rem;
   color: #fff;
-`;
 
-export const Description = styled.div`
-  flex: 1;
-  padding-right: 5rem;
+  span {
+    display: block;
+  }
 
   h2 {
-    font-weight: lighter;
+    padding-bottom: 2rem;
   }
-`;
 
-export const ImageContainer = styled.div`
-  flex: 1;
-  overflow: hidden;
-
-  img {
+  .line {
+    background: #ccc;
+    height: 0.2rem;
+    margin: 2rem 0;
     width: 100%;
-    height: 80vh;
-    object-fit: cover;
   }
 `;
 
-export const Hide = styled.div`
-  overflow: hidden;
+export const Question = styled.article`
+  padding: 3rem 0;
+  cursor: pointer;
+
+  .answer {
+    padding: 2rem 0;
+    p {
+      padding: 1rem 0;
+    }
+  }
 `;

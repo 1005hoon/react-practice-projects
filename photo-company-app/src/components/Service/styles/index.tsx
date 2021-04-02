@@ -39,7 +39,8 @@ export const Card = styled.div`
       margin-left: 1.5rem;
       background: #fff;
       padding: 1rem;
-      color: #333;
+      color: #2f2f2f;
+      border-radius: 5px;
     }
   }
 `;
@@ -53,8 +54,4 @@ export const ImageContainer = styled.div`
     height: 80vh;
     object-fit: cover;
   }
-`;
-
-export const Hide = styled.div`
-  overflow: hidden;
 `;

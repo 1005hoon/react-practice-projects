@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  
   body {
     background: #1b1b1b;
     font-family: 'Inter', sans-serif;
@@ -41,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
 
   h4 {
     font-weight: bold;
-    color: #23d997;
+    font-size: 2.3rem;
   }
 
   span {
@@ -57,6 +58,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 3rem 0rem;
     color: #ccc;
     font-size: 1.4rem;
+    line-height: 1.6
   }
 
 `;
