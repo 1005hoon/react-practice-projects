@@ -96,7 +96,7 @@ const MusicPlayer = ({
           value={songInfo.currentTime || 0}
           onChange={dragHandler}
         />
-        <p>{getTime(songInfo.duration)}</p>
+        <p>{songInfo.duration ? getTime(songInfo.duration) : "0:00"}</p>
       </div>
       <div className="play-controller">
         <FontAwesomeIcon
