@@ -39,13 +39,13 @@ const Header = ({ location: { pathname } }) => {
   return (
     <AppHeader>
       <List>
-        <Item current={pathname.toLowerCase() === "/"}>
+        <Item current={pathname === "/"}>
           <StyledLink to="/">Movies</StyledLink>
         </Item>
-        <Item current={pathname.toLowerCase() === "/tv"}>
+        <Item current={pathname === "/tv"}>
           <StyledLink to="/TV">TV</StyledLink>
         </Item>
-        <Item current={pathname.toLowerCase() === "/search"}>
+        <Item current={pathname === "/search"}>
           <StyledLink to="/Search">Search</StyledLink>
         </Item>
       </List>

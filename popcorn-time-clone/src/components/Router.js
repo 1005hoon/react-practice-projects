@@ -22,7 +22,6 @@ const Router = () => {
         <Route path="/search" exact component={Search} />
         <Route path="/movie/:id" exact component={Detail} />
         <Route path="/show/:id" exact component={Detail} />
-
         <Redirect from="*" to="/" />
       </Switch>
     </AppRouter>

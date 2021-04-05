@@ -8,10 +8,25 @@ export class DetailContainer extends Component {
     loading: true,
   };
 
+  async componentDidMount() {
+    const {
+      match: {
+        params: { id },
+      },
+      history: { push },
+    } = this.props;
+
+    if (isNaN(+id)) {
+      return push("/");
+    }
+  }
+
   render() {
     const { popular, error, loading } = this.state;
 
-    return <div></div>;
+    return (
+      <DetailPresenter popular={popular} error={error} loading={loading} />
+    );
   }
 }
 
