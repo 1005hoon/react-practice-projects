@@ -11,7 +11,7 @@ const api = axios.create({
 export const tvAPI = {
   topRated: () => api.get("tv/top_rated"),
   popular: () => api.get("tv/popular"),
-  airing: () => api.get("tv/air_today"),
+  airing: () => api.get("tv/airing_today"),
   TVDetailsById: (id) =>
     api.get(`tv/${id}`, {
       params: {
