@@ -5,6 +5,8 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
+
+import Header from "./Header";
 import Home from "../routes/Home";
 import TV from "../routes/TV";
 import Search from "../routes/Search";
@@ -12,6 +14,7 @@ import Search from "../routes/Search";
 const Router = () => {
   return (
     <AppRouter>
+      <Header />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/TV" exact component={TV} />
