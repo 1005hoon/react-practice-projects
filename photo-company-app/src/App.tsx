@@ -6,6 +6,7 @@ import Nav from "./components/Nav/Nav";
 import AboutUs from "./pages/AboutUs";
 import OurWork from "./pages/OurWork";
 import ContactUs from "./pages/ContactUs";
+import MovieDetail from "./pages/MovieDetail";
 
 function App(): JSX.Element {
   return (
@@ -16,8 +17,11 @@ function App(): JSX.Element {
         <Route exact path="/">
           <AboutUs />
         </Route>
-        <Route path="/work">
+        <Route exact path="/work">
           <OurWork />
+        </Route>
+        <Route path="/work/:id">
+          <MovieDetail />
         </Route>
         <Route path="/contact">
           <ContactUs />
