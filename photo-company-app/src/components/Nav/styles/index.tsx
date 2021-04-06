@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-
+import { Link } from "react-router-dom";
 export const Navbar = styled.nav`
   min-height: 10vh;
   display: flex;
@@ -23,10 +23,14 @@ export const Navbar = styled.nav`
       padding: 0 2rem;
     }
   }
-
   #logo {
     font-size: 1.5rem;
     font-family: "Lobster", cursive;
     font-weight: 300;
   }
+`;
+
+export const NavLink = styled(Link)`
+  display: inline-block;
+  padding: 1.5rem;
 `;

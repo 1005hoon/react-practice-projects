@@ -41,6 +41,7 @@ const Work = styled(motion.section)`
   min-height: 100vh;
   overflow: hidden;
   padding: 5rem 10rem;
+  background: #fff;
 
   h2 {
     padding: 1rem 0;

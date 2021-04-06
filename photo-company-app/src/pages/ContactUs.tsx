@@ -10,6 +10,7 @@ const ContactUs = (): JSX.Element => {
       initial="hidden"
       animate="show"
       exit="exit"
+      style={{ background: "white" }}
     >
       <h1>Contact Us Page</h1>
     </motion.div>
