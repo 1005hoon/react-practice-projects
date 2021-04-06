@@ -1,7 +1,8 @@
 import styled from "styled-components/macro";
+import { motion } from "framer-motion";
 
 // styled components
-export const Services = styled.section`
+export const Services = styled(motion.section)`
   min-height: 90vh;
   display: flex;
   align-items: center;

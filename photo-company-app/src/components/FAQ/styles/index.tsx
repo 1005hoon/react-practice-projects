@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
-
+import { motion } from "framer-motion";
 // styled components
-export const FAQ = styled.section`
+export const FAQ = styled(motion.section)`
   min-height: 90vh;
   display: block;
   padding: 5rem 10rem;

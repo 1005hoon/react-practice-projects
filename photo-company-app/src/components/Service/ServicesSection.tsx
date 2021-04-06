@@ -8,9 +8,18 @@ import money from "../../img/money.svg";
 import teamwork from "../../img/teamwork.svg";
 import home2 from "../../img/home2.png";
 
+import { useScroll } from "../useScroll";
+import { fade } from "../../animation";
+
 const ServicesSection = (): JSX.Element => {
+  const [element, controls] = useScroll();
   return (
-    <Services>
+    <Services
+      variants={fade}
+      animate={controls as any}
+      ref={element as any}
+      initial="hidden"
+    >
       <Description>
         <h2>
           High <span>quality</span> services

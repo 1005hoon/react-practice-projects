@@ -3,9 +3,21 @@ import { FAQ, Question } from "./styles";
 import Toggle from "../Toggle/Toggle";
 import { AnimateSharedLayout } from "framer-motion";
 
+import { useScroll } from "../useScroll";
+import { scrollReveal } from "../../animation";
+
 const FaqSection = (): JSX.Element => {
+  const [element, controls] = useScroll();
+  if (element) {
+    console.log("showing");
+  }
   return (
-    <FAQ>
+    <FAQ
+      variants={scrollReveal}
+      animate={controls as any}
+      ref={element as any}
+      initial="hidden"
+    >
       <h2>
         Any questions? <span>FAQ</span>
       </h2>
