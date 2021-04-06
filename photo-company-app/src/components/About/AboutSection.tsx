@@ -1,8 +1,10 @@
 import React from "react";
-import home1 from "../../img/home1.png";
-import { About, Description, Hide, ImageContainer } from "./styles";
 import { motion } from "framer-motion";
 import { titleAnimation, fade, photoAnimation } from "../../animation";
+
+import home1 from "../../img/home1.png";
+import Wave from "./Wave";
+import { About, Description, Hide, ImageContainer } from "./styles";
 
 const AboutSection = (): JSX.Element => {
   return (
@@ -34,6 +36,7 @@ const AboutSection = (): JSX.Element => {
           alt="guy with a camera"
         />
       </ImageContainer>
+      <Wave />
     </About>
   );
 };
