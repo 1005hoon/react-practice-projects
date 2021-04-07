@@ -37,3 +37,6 @@ const NEW_GAMES = `games?${KEY_URL}&dates=${lastYear},${currentDate}&ordering=-r
 export const popularGamesUrl = () => `${BASE_URL}${POPULAR_GAMES}`;
 export const upcomingGamesUrl = () => `${BASE_URL}${UPCOMING_GAMES}`;
 export const newGamesUrl = () => `${BASE_URL}${NEW_GAMES}`;
+export const gameDetailsUrl = (gameId) => `${BASE_URL}games/${gameId}`;
+export const gameScreenShotUrl = (gameId) =>
+  `${BASE_URL}games/${gameId}/screenshots?${KEY_URL}`;

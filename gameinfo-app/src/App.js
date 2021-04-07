@@ -1,10 +1,11 @@
 import React from "react";
 import Home from "./pages/Home";
 
+import GlobalStyles from "./components/GlobalStyles";
 function App() {
   return (
     <>
-      <h1 style={{ color: "black" }}>Hello World</h1>
+      <GlobalStyles />
       <Home />
     </>
   );

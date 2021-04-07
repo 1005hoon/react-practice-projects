@@ -14,6 +14,7 @@ const gamesReducer = (state = initialState, action) => {
         upComing: action.payload.upComing,
         newGames: action.payload.newGames,
       };
+
     default:
       return { ...state };
   }
