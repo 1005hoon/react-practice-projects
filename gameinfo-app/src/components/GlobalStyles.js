@@ -38,7 +38,6 @@ const GlobalStyles = createGlobalStyle`
 
   p {
     font-size: 1.2rem;
-    padding: 1rem;
     line-height: 1.6;
     color: #696969
   }
