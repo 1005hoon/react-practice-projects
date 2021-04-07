@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { resizeImage } from "../utils";
 
-const GameDetail = () => {
+const GameDetail = ({ selectedGameId }) => {
   const history = useHistory();
   const { game, screenshot, isLoading } = useSelector((state) => state.detail);
 
@@ -22,15 +22,9 @@ const GameDetail = () => {
 
   return (
     <>
-      {isLoading ? (
-        <CardShadow>
-          <Detail>
-            <h1>Loading Data</h1>
-          </Detail>
-        </CardShadow>
-      ) : (
+      {!isLoading && (
         <CardShadow className="shadow" onClick={exitDetailHandler}>
-          <Detail>
+          <Detail layoutId={game.id}>
             <Stats>
               <div className="rating">
                 <h3>{game.name}</h3>
