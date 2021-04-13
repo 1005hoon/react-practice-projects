@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
+import Modal from "../UI/Modal";
 
 import style from "./AddUser.module.css";
 
@@ -30,25 +31,28 @@ const AddUser = ({ onAddUser }) => {
   };
 
   return (
-    <Card className={style.input}>
-      <form onSubmit={addUserHandler}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          onChange={usernameChangeHandler}
-          value={enteredUsername}
-        />
-        <label htmlFor="age">Age (Years)</label>
-        <input
-          type="number"
-          id="age"
-          onChange={ageChangeHandler}
-          value={enteredAge}
-        />
-        <Button type="submit">Add User</Button>
-      </form>
-    </Card>
+    <>
+      <Modal title="this is modal" message="modal message" />
+      <Card className={style.input}>
+        <form onSubmit={addUserHandler}>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            onChange={usernameChangeHandler}
+            value={enteredUsername}
+          />
+          <label htmlFor="age">Age (Years)</label>
+          <input
+            type="number"
+            id="age"
+            onChange={ageChangeHandler}
+            value={enteredAge}
+          />
+          <Button type="submit">Add User</Button>
+        </form>
+      </Card>
+    </>
   );
 };
 
