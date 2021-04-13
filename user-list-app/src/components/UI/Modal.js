@@ -3,9 +3,10 @@ import Button from "./Button";
 import Card from "./Card";
 import style from "./Modal.module.css";
 
-const Modal = ({ title, message }) => {
+const Modal = ({ title, message, onCloseModal }) => {
   return (
-    <div className={style.background}>
+    <>
+      <div className={style.background} onClick={onCloseModal} />
       <Card className={style.modal}>
         <header className={style.header}>
           <h2>{title}</h2>
@@ -14,10 +15,10 @@ const Modal = ({ title, message }) => {
           <p>{message}</p>
         </div>
         <footer className={style.actions}>
-          <Button>Close</Button>
+          <Button onClick={onCloseModal}>Close</Button>
         </footer>
       </Card>
-    </div>
+    </>
   );
 };
 
