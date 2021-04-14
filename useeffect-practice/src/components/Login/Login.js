@@ -1,8 +1,9 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
+import AuthContext from "../../context/authContext";
 
 // reducer function will not use anything from component so it can be created outside the component
 const emailReducer = (state, action) => {
@@ -50,6 +51,8 @@ const Login = (props) => {
     isValid: false,
   });
 
+  const { onLogin } = useContext(AuthContext);
+
   // obj destructuring with alias assignment
   const { isValid: emailIsValid } = emailState;
   const { isValid: passwordIsValid } = passwordState;
@@ -88,7 +91,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(emailState.value, passwordState.value);
+    onLogin(emailState.value, passwordState.value);
   };
 
   return (
