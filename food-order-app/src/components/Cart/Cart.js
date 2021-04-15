@@ -5,13 +5,18 @@ import Modal from "../UI/Modal";
 import classes from "./Cart.module.css";
 
 const Cart = (props) => {
-  const { items, totalAmount } = useContext(CartContext);
+  const { items, totalAmount, addItem, removeItem } = useContext(CartContext);
 
   const formattedAmount = `$${totalAmount.toFixed(2)}`;
   const hasItems = items.length > 0;
 
-  const cartItemRemoveHandler = (id) => {};
-  const cartItemAddHandler = (item) => {};
+  const cartItemRemoveHandler = (id) => {
+    removeItem(id);
+  };
+  const cartItemAddHandler = (item) => {
+    const cartItem = { ...item, amount: 1 };
+    addItem(cartItem);
+  };
 
   const cartItems = (
     <ul className={classes["cart-items"]}>
