@@ -12,7 +12,9 @@ const Meal = ({ name, description, price }) => {
         <div className={classes.description}>{description}</div>
         <div className={classes.price}>{formattedPrice}</div>
       </div>
-      <div>{/* <MealForm /> */}</div>
+      <div>
+        <MealForm />
+      </div>
     </li>
   );
 };
