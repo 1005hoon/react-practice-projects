@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
+import AddMovie from "./components/AddMovie";
 import MoviesList from "./components/MoviesList";
 
 const App = () => {
@@ -40,6 +41,10 @@ const App = () => {
     fetchMovieHandler();
   }, [fetchMovieHandler]);
 
+  const addMovieHandler = (movie) => {
+    console.log(movie);
+  };
+
   let renderContent = <p>데이터가 없습니다</p>;
 
   if (movies.length > 0) {
@@ -55,6 +60,9 @@ const App = () => {
   }
   return (
     <>
+      <section>
+        <AddMovie onAddMovie={addMovieHandler} />
+      </section>
       <section>
         <button onClick={fetchMovieHandler}>영화정보 가져오기</button>
       </section>
