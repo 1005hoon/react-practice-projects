@@ -13,7 +13,7 @@ const App = () => {
     setError(null);
 
     try {
-      const response = await fetch("https://swapi.dev/api/films");
+      const response = await fetch("http://localhost:5000/movies");
 
       if (!response.ok) {
         throw new Error("에러가 발생했습니다");
@@ -21,12 +21,12 @@ const App = () => {
 
       const data = await response.json();
 
-      const transformedMovies = data.results.map((movieData) => {
+      const transformedMovies = data.map((movieData) => {
         return {
-          id: movieData.episode_id,
+          id: movieData.id,
           title: movieData.title,
-          description: movieData.opening_crawl,
-          releaseDate: movieData.release_date,
+          description: movieData.description,
+          releaseDate: movieData.releaseDate,
         };
       });
 
@@ -41,23 +41,34 @@ const App = () => {
     fetchMovieHandler();
   }, [fetchMovieHandler]);
 
-  const addMovieHandler = (movie) => {
-    console.log(movie);
+  const addMovieHandler = async (movie) => {
+    await fetch("http://localhost:5000/movies", {
+      method: "POST",
+      body: JSON.stringify(movie),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   };
 
   let renderContent = <p>데이터가 없습니다</p>;
-
-  if (movies.length > 0) {
-    renderContent = <MoviesList movies={movies} />;
-  }
 
   if (error) {
     renderContent = <p>{error}</p>;
   }
 
+  if (movies.length > 0) {
+    renderContent = <MoviesList movies={movies} />;
+  }
+
+  if (movies.length === 0) {
+    renderContent = <p>데이터가 없습니다</p>;
+  }
+
   if (isLoading) {
     renderContent = <h1>데이터를 로딩중입니다</h1>;
   }
+
   return (
     <>
       <section>
